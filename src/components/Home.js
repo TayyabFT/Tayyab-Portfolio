@@ -56,8 +56,8 @@ const Home = () => {
                 }}
               ></div>
               <img 
-                src={process.env.PUBLIC_URL + "/images/img.jpg"} 
-                alt="" 
+                src={`${process.env.PUBLIC_URL}/images/img2.png?t=${new Date().getTime()}`} 
+                alt="Muhammad Tayyab" 
                 className="h-[400px] mx-auto w-[350px] rounded-md relative z-10"
               />
             </div>
