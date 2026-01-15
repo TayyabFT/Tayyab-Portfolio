@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Theme Colors */
+:root {
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #edf8ec;
+  --text-black-900: #302e4d;
+  --text-black-700: #504e70;
+  --skin-color: #1854b4; /* Default color-4 */
+}
+
+body.dark {
+  --bg-black-900: #151515;
+  --bg-black-100: #222222;
+  --bg-black-50: #393939;
+  --text-black-900: #ffffff;
+  --text-black-700: #e9e9e9;
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply text-base leading-relaxed;
+  }
+  
+  * {
+    @apply m-0 p-0 box-border outline-none no-underline;
+  }
+  
+  ::before,
+  ::after {
+    @apply box-border;
+  }
+  
+  ul {
+    @apply list-none;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  .main-container {
+    @apply relative w-full;
+  }
+  
+  .main-content {
+    @apply ml-[270px] w-[calc(100%-270px)] relative;
+  }
+  
+  @media (max-width: 1199px) {
+    .main-content {
+      @apply ml-0 w-full;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .home .home-info {
+      @apply w-full max-w-full;
+    }
+    .home .home-img {
+      @apply hidden;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .about .about-content .personal-info,
+    .about .about-content .skills,
+    .about .about-content .education,
+    .about .about-content .experience {
+      @apply w-full max-w-full;
+    }
+    .service .service-item,
+    .portfolio .portfolio-item,
+    .contact .contact-info-item {
+      @apply w-1/2 max-w-[50%];
+    }
+    .contact .contact-form .col-6 {
+      @apply w-full max-w-full;
+    }
+  }
+  
+  .section {
+    @apply block min-h-screen px-[30px] relative w-full transition-all duration-300;
+    background-color: var(--bg-black-900);
+  }
+  
+  .section .container {
+    @apply pt-[60px] pb-[70px];
+  }
+  
+  .section-title {
+    @apply flex-none w-full mb-[60px];
+  }
+  
+  .section-title h2 {
+    @apply text-[40px] font-bold relative;
+    color: var(--text-black-900);
+  }
+  
+  .section-title h2::before {
+    content: "";
+    @apply h-1 w-[50px] absolute top-full left-0;
+    background-color: var(--skin-color);
+  }
+  
+  .section-title h2::after {
+    content: "";
+    @apply h-1 w-[25px] absolute top-full left-0 mt-2;
+    background-color: var(--skin-color);
+  }
+  
+  .padd-15 {
+    @apply px-[15px];
+  }
+  
+  .row {
+    @apply flex flex-wrap -mx-[15px] relative;
+  }
+  
+  .btn {
+    @apply text-base font-medium py-3 px-[35px] inline-block whitespace-nowrap border-none rounded-[40px] text-white transition-all duration-300;
+    background: var(--skin-color);
+  }
+  
+  .btn:hover {
+    @apply scale-105 cursor-pointer;
+  }
+  
+  .shadow-dark {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+/* Import style-switcher CSS */
+@import './colors/style-switcher.css';
